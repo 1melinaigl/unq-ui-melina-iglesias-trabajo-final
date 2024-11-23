@@ -5,11 +5,15 @@ import arrow from '../../assets/images/arrow.svg';
 import book from '../../assets/images/book.svg';
 import wolf from '../../assets/images/wolf.svg';
 import knight from '../../assets/images/knight.svg';
+import shield from '../../assets/images/shield.svg';
+import castle from '../../assets/images/castle.svg';
+import dragon from '../../assets/images/dragon.svg';
+import gotIcon from '../../assets/images/got-icon.svg';
 
 const Cards = () => {
   const [shuffledCards, setShuffledCards] = useState([]);
 
-  const images = [knight, arrow, book, wolf]; 
+  const images = [knight, arrow, book, wolf, shield, castle, dragon, gotIcon]; 
   const arrayImages = images.flatMap((item) => [item, item]);
 
   const shuffleArray = (array) => {
