@@ -31,7 +31,6 @@ const Cards = () => {
 
   return (
     <div className="cards">
-      <h1>Memory Game</h1>
       <div className="cards-container">
         {shuffledCards.map((card) => (
           <img
