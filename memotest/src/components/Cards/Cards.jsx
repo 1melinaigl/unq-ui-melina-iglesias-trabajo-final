@@ -1,4 +1,6 @@
+import './Cards.css';
 import React, { useState, useEffect } from 'react';
+import Board from '../Board/Board'; // Importamos Board
 import arrow from '../../assets/images/arrow.svg';
 import book from '../../assets/images/book.svg';
 import wolf from '../../assets/images/wolf.svg';
@@ -7,8 +9,8 @@ import knight from '../../assets/images/knight.svg';
 const Cards = () => {
   const [shuffledCards, setShuffledCards] = useState([]);
 
-  const images = [knight, arrow, book, wolf]; // paso las imagenes a un array
-  const arrayImages = images.flatMap((item) => [item, item]); // esto me lo duplica
+  const images = [knight, arrow, book, wolf]; 
+  const arrayImages = images.flatMap((item) => [item, item]);
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -19,7 +21,7 @@ const Cards = () => {
   };
 
   useEffect(() => {
-    const shuffled = shuffleArray([...arrayImages]); // aca me lo shufflea
+    const shuffled = shuffleArray([...arrayImages]);
     setShuffledCards(
       shuffled.map((image, i) => ({
         id: i,
@@ -30,19 +32,11 @@ const Cards = () => {
   }, []);
 
   return (
-    <div className="cards">
-      <div className="cards-container">
-        {shuffledCards.map((card) => (
-          <img
-            key={card.id}
-            src={card.image} 
-            alt={`Card ${card.id}`}
-            className={`card ${card.flipped ? 'flipped' : ''}`} 
-          />
-        ))}
-      </div>
+    <div className="container">
+      <Board cards={shuffledCards} /> 
     </div>
   );
 };
 
 export default Cards;
+
