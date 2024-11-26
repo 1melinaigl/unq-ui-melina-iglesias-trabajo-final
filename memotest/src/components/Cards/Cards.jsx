@@ -24,9 +24,12 @@ import ice from '../../assets/images/ice.svg'
 
 const Cards = () => {
   const [shuffledCards, setShuffledCards] = useState([]);
+  const [flippedCards, setFlippedCards] = useState([]);
+  const [matchedCards, setMatchedCards] = useState([]);
+  const [match, setMatch] = useState(0);
 
-  const images = [dog, cersei, daenerys, weapon, icefire, dragonIcon, jon, chair]; 
-  const arrayImages = images.flatMap((item) => [item, item]);
+  const images = [dog, cersei, daenerys, weapon, icefire, dragonIcon, jon, chair];
+  const arrayImages = images.flatMap((item) => [item, item]); // aca lo pongo en array y a la vez las duplico
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -42,17 +45,44 @@ const Cards = () => {
       shuffled.map((image, i) => ({
         id: i,
         image,
-        flipped: false, 
+        flipped: false,
       }))
     );
   }, []);
 
+  const handleCardClick = (id) => {
+    if (flippedCards.length === 2 || matchedCards.includes(id)) return;
+    setFlippedCards((prev) => [...prev, id]);
+    
+
+    if (flippedCards.length === 1) {
+      const firstCard = shuffledCards[flippedCards[0]];
+      const secondCard = shuffledCards[id];
+      if (firstCard.image === secondCard.image) {
+        setMatchedCards((prev) => [...prev, flippedCards[0], id]);
+        setMatch((prev) => prev + 1);
+        setFlippedCards([]);
+      } else {
+        setTimeout(() => {
+          
+          setFlippedCards([]);
+        }, 500);
+      }
+    }
+  };
+
   return (
     <div className="container">
-      <Board cards={shuffledCards} /> 
+      <h2>Coincidencias: {match}</h2>
+      <Board
+        cards={shuffledCards.map((card) => ({
+          ...card,
+          flipped: flippedCards.includes(card.id) || matchedCards.includes(card.id),
+        }))}
+        onCardClick={handleCardClick}
+      />
     </div>
   );
 };
 
 export default Cards;
-
