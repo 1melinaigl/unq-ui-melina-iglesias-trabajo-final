@@ -12,14 +12,15 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-top: 2rem;
+    text-align: center;
+    margin-top: 20px;
   }
   
   .restartButton {
     padding: 10px 20px;
     font-size: 1rem;
     font-weight: bold;
-    background-color: #6200ea;
+    background-color: #44400c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -28,10 +29,10 @@
   }
   
   .restartButton:hover {
-    background-color: #3700b3;
+    background-color: #b5b545; 
   }
-  
+
   .restartButton:active {
-    background-color: #5e35b1;
+    background-color: #b5b545;
   }
   

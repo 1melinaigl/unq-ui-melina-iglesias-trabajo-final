@@ -1,10 +1,14 @@
 .board {
   display: grid;
-  grid-template-columns: repeat(4, 0.5fr);
-  gap: 12px;
-  justify-content: center;
-  align-items: center;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 10px;
+  padding: 20px;
+  background-color: #2F2F2F; 
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
 }
+
 
 .card {
   width: 100px;
@@ -12,7 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #8e6a6a;
+  border: 2px solid #e09d215d;
   border-radius: 10px;
   cursor: pointer;
   perspective: 500px;
@@ -21,6 +25,7 @@
 
 .card.flipped {
   transform: rotateY(180deg);
+  background-color: #EEE5CE;
 }
 
 .card-image {

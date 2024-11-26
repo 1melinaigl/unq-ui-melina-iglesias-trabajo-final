@@ -1,28 +1,28 @@
+h1, h2 {
+  color: #D4AF37; 
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .app {
     display: flex;
     flex-direction: column;
     height: 100vh; 
     width: 100vw; 
-    background: linear-gradient(to bottom, #1c1c1c, #403e34); 
+    background: linear-gradient(to bottom, #1c1c1c, #5b584a); 
     color: white; 
     justify-content: center; 
     align-items: center; 
     font-family: 'Cinzel', serif; 
   }
 
-  .Header {
-    text-align: center;
-    font-size: 2.5rem; 
-    margin-bottom: 20px; 
-  }
-
-
   .startScreen {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 20px;
+
   }
   
   .startButton {
