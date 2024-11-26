@@ -22,7 +22,7 @@ const App = () => {
       <main>
         {!gameStarted ? (
           <div className="startScreen">
-            <h2>Bienvenido al Juego de Memoria</h2>
+            <h2>Bienvenido al MemoTest: GOT version</h2>
             <h3>Seleccioná el tamaño del tablero:</h3>
             <div className="sizeButtons">
               <button onClick={() => handleBoardSizeChange(4)} className={boardSize === 4 ? 'selected' : ''}>

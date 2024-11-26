@@ -1,30 +1,28 @@
 .board {
   display: grid;
-  gap: 10px;
-  padding: 20px;
-  background-color: #50444493; 
+  gap: 12px;
   border-radius: 10px;
-  max-width: 600px;
-  margin: 0 auto;
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
 }
 
 
 .card {
-  width: 100px;
-  height: 100px;
+  width: 100%; 
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid #8360205d;
+  background-color: #EEE5CE;
   border-radius: 10px;
   cursor: pointer;
   perspective: 500px;
-  transition: transform 0.2s;
+  transition: transform 0.2s, background-color 0.3s;
 }
-
 .card.flipped {
   transform: rotateY(180deg);
-  background-color: #EEE5CE;
+  background-color: #e5d9b9;
 }
 
 .card-image {
@@ -32,7 +30,6 @@
   height: auto;
   object-fit: cover;
 }
-
 
 .board--4x4 {
   grid-template-columns: repeat(4, 1fr);
