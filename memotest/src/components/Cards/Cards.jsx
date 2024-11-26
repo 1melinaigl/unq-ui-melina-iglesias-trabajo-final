@@ -17,19 +17,24 @@ import cersei from  '../../assets/images/cersei.svg'
 import dog from '../../assets/images/dog.svg';
 import knife from '../../assets/images/knife.svg'
 import icefire from '../../assets/images/iceandfire.svg'
-import weapon  from '../../assets/images/weapon.svg'
-import fire from '../../assets/images/fire.svg'
-import ice from '../../assets/images/ice.svg'
+import weapon  from '../../assets/images/weapon.svg';
+import fire from '../../assets/images/fire.svg';
+import ice from '../../assets/images/ice.svg';
+import targaryen from '../../assets/images/targaryen.png';
+import greyjoy from '../../assets/images/greyjoy.png';
+import baratheon from '../../assets/images/baratheon.png'
+import stark from '../../assets/images/stark.png'
+import arryn from '../../assets/images/arryn.png'
 
 
-const Cards = () => {
+const Cards = ({boardSize}) => {
   const [shuffledCards, setShuffledCards] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
   const [gameWon, setGameWon] = useState(false);
 
-  const images = [dog, cersei, daenerys, weapon, icefire, dragonIcon, jon, chair];
-  const arrayImages = images.flatMap((item) => [item, item]);
+  const images = [dog, cersei, daenerys, weapon, icefire, dragonIcon, jon, chair, fire, ice, knife, castle, arrow, arryn, shield, stark, dragon, targaryen, greyjoy, baratheon];
+  const arrayImages = images.slice(0, (boardSize * boardSize) / 2).flatMap((item) => [item, item]); 
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -38,6 +43,7 @@ const Cards = () => {
     }
     return array;
   };
+
 
   const resetGame = () => {
     const shuffled = shuffleArray([...arrayImages]);
@@ -54,8 +60,10 @@ const Cards = () => {
   };
 
   useEffect(() => {
-    resetGame();
-  }, []);
+    resetGame(); 
+  }, [boardSize]);
+
+
 
   useEffect(() => {
     if (matchedCards.length === shuffledCards.length && shuffledCards.length > 0) {
@@ -87,15 +95,14 @@ const Cards = () => {
     <div className="container">
       <h2>Emparejadas: {matchedCards.length / 2}</h2>
       {!gameWon ? (
-        <>
-          <Board
-            cards={shuffledCards.map((card) => ({
-              ...card,
-              flipped: flippedCards.includes(card.id) || matchedCards.includes(card.id),
-            }))}
-            onCardClick={handleCardClick}
-          />
-        </>
+        <Board
+          cards={shuffledCards.map((card) => ({
+            ...card,
+            flipped: flippedCards.includes(card.id) || matchedCards.includes(card.id),
+          }))}
+          onCardClick={handleCardClick}
+          boardSize={boardSize} 
+        />
       ) : (
         <div className="winMessage">
           <h2>¡Ganaste! 🎉</h2>

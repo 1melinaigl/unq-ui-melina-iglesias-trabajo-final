@@ -1,10 +1,12 @@
 import React from 'react';
 import './Board.css';
-import gotIcon from '../../assets/images/got-icon.svg'
+import gotIcon from '../../assets/images/got-icon.svg';
 
-const Board = ({ cards, onCardClick }) => {
+const Board = ({ cards, onCardClick, boardSize }) => {
+  const boardClass = `board board--${boardSize}x${boardSize}`; 
+
   return (
-    <div className="board">
+    <div className={boardClass}>
       {cards.map((card) => (
         <div
           key={card.id}
@@ -23,3 +25,4 @@ const Board = ({ cards, onCardClick }) => {
 };
 
 export default Board;
+
