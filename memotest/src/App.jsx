@@ -16,10 +16,10 @@ const App = () => {
       <main>
         {!gameStarted ? ( 
           <div className="startScreen">
-            <h2>Welcome to Memory Game!</h2>
+            <h2>Bienvenido al Juego de Memoria!</h2>
             <div className="buttonStart">
             <button className="startButton" onClick={handleStartGame}>
-              Start Game
+              Empezá a jugar
             </button>
             </div>
           </div>

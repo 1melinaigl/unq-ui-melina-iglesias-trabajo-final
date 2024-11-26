@@ -1,27 +1,44 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+    width: 100vw; 
+    background: linear-gradient(to bottom, #1c1c1c, #403e34); 
+    color: white; 
+    justify-content: center; 
+    align-items: center; 
+    font-family: 'Cinzel', serif; 
+  }
 
-  
-  .buttonStart {
-    margin-top: 20px;
+  .Header {
+    text-align: center;
+    font-size: 2.5rem; 
+    margin-bottom: 20px; 
+  }
+
+
+  .startScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
   }
   
   .startButton {
+    margin-top: 20px;
     padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #6200ea;
+    font-size: 1.2rem;
+    background-color: #44400c; 
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
   }
   
   .startButton:hover {
-    background-color: #3700b3;
-  }
-  
-  .startButton:active {
-    background-color: #5e35b1;
+    background-color: #b5b545; 
   }
   
 

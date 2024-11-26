@@ -26,10 +26,10 @@ const Cards = () => {
   const [shuffledCards, setShuffledCards] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
-  const [match, setMatch] = useState(0);
+  const [gameWon, setGameWon] = useState(false);
 
   const images = [dog, cersei, daenerys, weapon, icefire, dragonIcon, jon, chair];
-  const arrayImages = images.flatMap((item) => [item, item]); // aca lo pongo en array y a la vez las duplico
+  const arrayImages = images.flatMap((item) => [item, item]);
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -39,7 +39,7 @@ const Cards = () => {
     return array;
   };
 
-  useEffect(() => {
+  const resetGame = () => {
     const shuffled = shuffleArray([...arrayImages]);
     setShuffledCards(
       shuffled.map((image, i) => ({
@@ -48,23 +48,35 @@ const Cards = () => {
         flipped: false,
       }))
     );
+    setFlippedCards([]);
+    setMatchedCards([]);
+    setGameWon(false);
+  };
+
+  useEffect(() => {
+    resetGame();
   }, []);
+
+  useEffect(() => {
+    if (matchedCards.length === shuffledCards.length && shuffledCards.length > 0) {
+      setGameWon(true);
+    }
+  }, [matchedCards]);
 
   const handleCardClick = (id) => {
     if (flippedCards.length === 2 || matchedCards.includes(id)) return;
+
     setFlippedCards((prev) => [...prev, id]);
-    
 
     if (flippedCards.length === 1) {
       const firstCard = shuffledCards[flippedCards[0]];
       const secondCard = shuffledCards[id];
+
       if (firstCard.image === secondCard.image) {
         setMatchedCards((prev) => [...prev, flippedCards[0], id]);
-        setMatch((prev) => prev + 1);
         setFlippedCards([]);
       } else {
         setTimeout(() => {
-          
           setFlippedCards([]);
         }, 500);
       }
@@ -73,14 +85,25 @@ const Cards = () => {
 
   return (
     <div className="container">
-      <h2>Coincidencias: {match}</h2>
-      <Board
-        cards={shuffledCards.map((card) => ({
-          ...card,
-          flipped: flippedCards.includes(card.id) || matchedCards.includes(card.id),
-        }))}
-        onCardClick={handleCardClick}
-      />
+      <h2>Emparejadas: {matchedCards.length / 2}</h2>
+      {!gameWon ? (
+        <>
+          <Board
+            cards={shuffledCards.map((card) => ({
+              ...card,
+              flipped: flippedCards.includes(card.id) || matchedCards.includes(card.id),
+            }))}
+            onCardClick={handleCardClick}
+          />
+        </>
+      ) : (
+        <div className="winMessage">
+          <h2>¡Ganaste! 🎉</h2>
+          <button className="restartButton" onClick={resetGame}>
+            Reiniciar Juego
+          </button>
+        </div>
+      )}
     </div>
   );
 };
