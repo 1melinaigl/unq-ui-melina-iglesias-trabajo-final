@@ -5,6 +5,8 @@
   width: 90%;
   max-width: 800px;
   margin: 20px auto;
+  padding: 10px; 
+  box-sizing: border-box; 
 }
 
 
@@ -26,7 +28,7 @@
 }
 
 .card-image {
-  width: 85px;
+  width: 80px;
   height: auto;
   object-fit: cover;
 }
