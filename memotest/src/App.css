@@ -28,7 +28,7 @@ h2 {
     color: white; 
     justify-content: center; 
     align-items: center; 
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 10px; 
   }
 
@@ -41,23 +41,6 @@ h2 {
     padding: 20px; 
 
   }
-  
-  .startButton {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    background-color: #44400c; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .startButton:hover {
-    background-color: #b5b545; 
-  }
-  
  
 .sizeButtons {
     display: flex;
@@ -71,7 +54,7 @@ h2 {
   .sizeButtons button {
     padding: 10px 20px;
     font-size: 1rem;
-    font-family: 'Cinzel', serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
     background-color: #44400c; 
     border: 2px solid #D4AF37; 

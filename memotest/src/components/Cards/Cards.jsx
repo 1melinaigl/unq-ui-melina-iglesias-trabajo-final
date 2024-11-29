@@ -25,6 +25,7 @@ import greyjoy from '../../assets/images/greyjoy.png';
 import baratheon from '../../assets/images/baratheon.png'
 import stark from '../../assets/images/stark.png'
 import arryn from '../../assets/images/arryn.png'
+import Button from '../Button/Button';
 
 
 const Cards = ({boardSize}) => {
@@ -106,9 +107,10 @@ const Cards = ({boardSize}) => {
       ) : (
         <div className="winMessage">
           <h2>¡Ganaste! 🎉</h2>
-          <button className="restartButton" onClick={resetGame}>
-            Reiniciar Juego
-          </button>
+          <div className="buttonOption">
+          <Button text="Reiniciar Juego" onClick={resetGame} />
+          <Button text="Volver al Inicio" onClick={() => window.location.reload()}/>
+          </div> 
         </div>
       )}
     </div>

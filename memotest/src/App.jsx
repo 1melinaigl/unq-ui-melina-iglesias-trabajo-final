@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Cards from './components/Cards/Cards';
+import Button from './components/Button/Button';
 
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -35,9 +36,7 @@ const App = () => {
                 8x8
               </button>
             </div>
-            <button className="startButton" onClick={handleStartGame}>
-              Empezar Juego
-            </button>
+            <Button text="Empezar Juego" onClick={handleStartGame} />
           </div>
         ) : (
           <Cards boardSize={boardSize} /> 

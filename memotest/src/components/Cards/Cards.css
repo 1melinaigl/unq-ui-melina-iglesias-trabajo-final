@@ -39,3 +39,11 @@
   .restartButton:active {
     background-color: #b5b545;
   }
+
+  .buttonOption {
+    display: flex; 
+    gap: 20px; 
+    justify-content: center; 
+    margin-top: 20px; 
+  }
+
