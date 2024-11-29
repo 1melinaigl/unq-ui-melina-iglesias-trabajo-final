@@ -24,7 +24,7 @@
 }
 .card.flipped {
   transform: rotateY(180deg);
-  background-color: #e5d9b9;
+  background-color: #ebddb6;
 }
 
 .card-image {
