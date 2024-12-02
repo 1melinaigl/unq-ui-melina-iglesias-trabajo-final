@@ -1,0 +1,21 @@
+.playerinput {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .playerInput input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    background-color: rgb(236, 219, 197);
+    margin-bottom: 0.2rem; 
+  }
+  
+  .playerInput input:focus {
+    border-color: #ac6906be;
+  }
+  

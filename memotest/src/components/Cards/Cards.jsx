@@ -28,14 +28,16 @@ import arryn from '../../assets/images/arryn.png'
 import Button from '../Button/Button';
 
 
-const Cards = ({boardSize}) => {
+const Cards = ({ boardSize, multiplayer, playerNames}) => {
   const [shuffledCards, setShuffledCards] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
   const [gameWon, setGameWon] = useState(false);
+  const [currentPlayer, setCurrentPlayer] = useState(1);
+  const [scores, setScores] = useState({ player1: 0, player2: 0 });
 
   const images = [dog, cersei, daenerys, weapon, icefire, dragonIcon, jon, chair, fire, ice, knife, castle, arrow, arryn, shield, stark, dragon, targaryen, greyjoy, baratheon];
-  const arrayImages = images.slice(0, (boardSize * boardSize) / 2).flatMap((item) => [item, item]); 
+  const arrayImages = images.slice(0, (boardSize * boardSize) / 2).flatMap((item) => [item, item]); // aca los los esta cortando según el tamaño del tablero q le doy y los duplica 
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -58,6 +60,8 @@ const Cards = ({boardSize}) => {
     setFlippedCards([]);
     setMatchedCards([]);
     setGameWon(false);
+    setScores({ player1: 0, player2: 0 });
+    setCurrentPlayer(1);
   };
 
   useEffect(() => {
@@ -83,10 +87,19 @@ const Cards = ({boardSize}) => {
 
       if (firstCard.image === secondCard.image) {
         setMatchedCards((prev) => [...prev, flippedCards[0], id]);
+        if (multiplayer) {
+          setScores((prev) => ({
+            ...prev,
+            [`player${currentPlayer}`]: prev[`player${currentPlayer}`] + 1,
+          }));
+        }
         setFlippedCards([]);
       } else {
         setTimeout(() => {
           setFlippedCards([]);
+          if (multiplayer) {
+            setCurrentPlayer((prev) => (prev === 1 ? 2 : 1));
+          }
         }, 500);
       }
     }
@@ -94,7 +107,15 @@ const Cards = ({boardSize}) => {
 
   return (
     <div className="container">
-      <h2>Emparejadas: {matchedCards.length / 2}</h2>
+      {multiplayer && !gameWon && (
+        <h2>Turno de {currentPlayer === 1 ? playerNames.player1 : playerNames.player2}</h2>
+      )}
+      {multiplayer && (
+        <div className="scores">
+          <h3>{playerNames.player1}: {scores.player1} puntos</h3>
+          <h3>{playerNames.player2}: {scores.player2} puntos</h3>
+        </div>
+      )}
       {!gameWon ? (
         <Board
           cards={shuffledCards.map((card) => ({
@@ -102,21 +123,29 @@ const Cards = ({boardSize}) => {
             flipped: flippedCards.includes(card.id) || matchedCards.includes(card.id),
           }))}
           onCardClick={handleCardClick}
-          boardSize={boardSize} 
+          boardSize={boardSize}
         />
       ) : (
-        <div className="winMessage">
-          <h2>¡Ganaste! 🎉</h2>
+        <div className="resultsMessage">
+          <h2>
+            {multiplayer
+              ? scores.player1 > scores.player2
+                ? `¡${playerNames.player1} gana! El trono es tuyo. 🎉`
+                : scores.player2 > scores.player1
+                ? `¡${playerNames.player2} gana! El trono es tuyo. 🎉`
+                : '¡Es un empate!'
+              : '¡Ganaste! 🎉'}
+          </h2>
           <div className="buttonOption">
-          <Button text="Reiniciar Juego" onClick={resetGame} />
-          </div> 
+            <Button text="Reiniciar Juego" onClick={resetGame} />
+            <Button text="Volver al Inicio" onClick={() => window.location.reload()} />
+          </div>
         </div>
       )}
-      <div className="buttonBack">
+       <div className="buttonBack">
       <Button text="Volver al Inicio" onClick={() => window.location.reload()}/>
       </div>
     </div>
   );
 };
-
 export default Cards;
