@@ -23,8 +23,11 @@ import ice from '../../assets/images/ice.svg';
 import targaryen from '../../assets/images/targaryen.png';
 import greyjoy from '../../assets/images/greyjoy.png';
 import baratheon from '../../assets/images/baratheon.png'
-import stark from '../../assets/images/stark.png'
-import arryn from '../../assets/images/arryn.png'
+import stark from '../../assets/images/stark.png';
+import arryn from '../../assets/images/arryn.png';
+import martell from '../../assets/images/martell.png';
+import tyrell from '../../assets/images/tyrell.png';
+import tully from '../../assets/images/tully.png';
 import Button from '../Button/Button';
 
 
@@ -36,7 +39,8 @@ const Cards = ({ boardSize, multiplayer, playerNames}) => {
   const [currentPlayer, setCurrentPlayer] = useState(1);
   const [scores, setScores] = useState({ player1: 0, player2: 0 });
 
-  const images = [dog, cersei, daenerys, weapon, icefire, dragonIcon, jon, chair, fire, ice, knife, castle, arrow, arryn, shield, stark, dragon, targaryen, greyjoy, baratheon];
+  const images = [dog, cersei, daenerys, weapon, icefire, dragonIcon, jon, chair, fire, ice, knife, castle, arrow, 
+                  arryn, shield, stark, dragon, targaryen, greyjoy, baratheon, martell, tyrell, tully, book];
   const arrayImages = images.slice(0, (boardSize * boardSize) / 2).flatMap((item) => [item, item]); // aca los los esta cortando según el tamaño del tablero q le doy y los duplica 
 
   const shuffleArray = (array) => {
