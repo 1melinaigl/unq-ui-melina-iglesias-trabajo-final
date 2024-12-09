@@ -2,11 +2,11 @@ import './Cards.css';
 import React, { useState, useEffect } from 'react';
 import Board from '../Board/Board'; 
 import arrow from '../../assets/images/arrow.svg';
-import book from '../../assets/images/book.svg';
+import book from '../../assets/images/bookg.svg';
 import wolf from '../../assets/images/wolf.svg';
 import knight from '../../assets/images/knight.svg';
-import shield from '../../assets/images/shield.svg';
-import castle from '../../assets/images/castle.svg';
+import shield from '../../assets/images/shieldg.svg';
+import castle from '../../assets/images/castleg.svg';
 import dragon from '../../assets/images/dragon.svg';
 import gotIcon from '../../assets/images/got-icon.svg';
 import daenerys from '../../assets/images/daenerys.svg';
@@ -28,7 +28,17 @@ import arryn from '../../assets/images/arryn.png';
 import martell from '../../assets/images/martell.png';
 import tyrell from '../../assets/images/tyrell.png';
 import tully from '../../assets/images/tully.png';
+import moon from '../../assets/images/gotMoonAn.svg';
+import gema from '../../assets/images/gema.png';
+import tyrion from '../../assets/images/tyrion-lannister.svg';
+import raven from '../../assets/images/raven.svg';
+import ship from '../../assets/images/ship.svg';
+import coup from '../../assets/images/coup.svg';
+import paper from '../../assets/images/paper.svg';
+import crown from '../../assets/images/crown.svg';
+import money from '../../assets/images/money.svg';
 import Button from '../Button/Button';
+
 
 
 const Cards = ({ boardSize, multiplayer, playerNames}) => {
@@ -40,7 +50,7 @@ const Cards = ({ boardSize, multiplayer, playerNames}) => {
   const [scores, setScores] = useState({ player1: 0, player2: 0 });
 
   const images = [dog, cersei, daenerys, weapon, icefire, dragonIcon, jon, chair, fire, ice, knife, castle, arrow, 
-                  arryn, shield, stark, dragon, targaryen, greyjoy, baratheon, martell, tyrell, tully, book];
+                  arryn, shield, stark, dragon, targaryen, greyjoy, baratheon, martell, tyrell, tully, book, moon, gema, tyrion, raven, ship, coup, paper, crown, money];
   const arrayImages = images.slice(0, (boardSize * boardSize) / 2).flatMap((item) => [item, item]); // aca los los esta cortando según el tamaño del tablero q le doy y los duplica 
 
   const shuffleArray = (array) => {
