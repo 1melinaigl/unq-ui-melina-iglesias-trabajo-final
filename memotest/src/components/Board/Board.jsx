@@ -1,5 +1,5 @@
-import React from 'react';
 import './Board.css';
+import React from 'react';
 import gotIcon from '../../assets/images/got-icon.svg';
 
 const Board = ({ cards, onCardClick, boardSize }) => {

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import './App.css';
+import React, { useState } from 'react';
 import Cards from './components/Cards/Cards';
 import Button from './components/Button/Button';
 import PlayerInput from './components/PlayerInput/PlayerInput';

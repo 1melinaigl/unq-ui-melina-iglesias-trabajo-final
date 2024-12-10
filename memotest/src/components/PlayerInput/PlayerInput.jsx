@@ -1,5 +1,5 @@
-import React from 'react';
 import './PlayerInput.css'; 
+import React from 'react';
 
 const PlayerInput = ({name, value, onChange, placeholder }) => {
   return (
