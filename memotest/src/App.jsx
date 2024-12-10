@@ -32,12 +32,9 @@ const App = () => {
     setPlayerNames((prev) => ({ ...prev, [name]: value }));
   };
 
-
   const handleBoardSizeChange = (size) => {
     setBoardSize(size); 
   };
-
-
 
   return (
     <div className="app">  
