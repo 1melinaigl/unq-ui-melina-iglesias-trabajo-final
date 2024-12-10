@@ -13,7 +13,7 @@
     justify-content: center; 
     align-items: center; 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    padding: 10px; 
+    overflow-y: auto;
   }
 
   .startScreen {
@@ -58,7 +58,6 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
     background-color: #44400c; 
-    border: 2px solid #D4AF37; 
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease; 
@@ -67,15 +66,14 @@
   
   .sizeButtons button:hover {
     background-color: #b5b545; 
-    color: black; 
+    color: rgb(255, 255, 255); 
   }
   
   
   .sizeButtons button.selected {
     background-color: #D4AF37; 
-    color: black; 
+    color: rgb(255, 255, 255); 
     font-weight: bold;
-    border-color: #ffffff;
   }
   
 

@@ -40,13 +40,11 @@ const App = () => {
 
 
   return (
-    <div className="app">
-      <header className="Header">
-        <h1>Juego de Memoria</h1>
-      </header>
+    <div className="app">  
       <main>
         {!gameStarted ? (
           <div className="startScreen">
+            <h1>Juego de Memoria</h1> 
             <h2>Bienvenido al MemoTest: GOT version</h2>
             <h3>Seleccioná el modo de juego:</h3>
             <div className="modeButtons">
