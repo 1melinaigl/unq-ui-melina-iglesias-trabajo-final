@@ -26,6 +26,7 @@
     justify-content: center; 
     margin-top: 20px; 
     flex-wrap: wrap;
+    margin-right: 40px;
   }
   .buttonBack {
     position: absolute; 

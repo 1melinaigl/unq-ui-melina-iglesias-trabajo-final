@@ -35,6 +35,7 @@ import paper from '../../assets/images/paper.svg';
 import crown from '../../assets/images/crown.svg';
 import money from '../../assets/images/money.svg';
 import Button from '../Button/Button';
+import confetti from 'canvas-confetti';
 
 
 
@@ -56,6 +57,14 @@ const Cards = ({ boardSize, multiplayer, playerNames, onReset}) => {
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
+  };
+
+  const celebrate = () => {
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 },  // Revisa que esto esté dentro del área visible
+    });
   };
 
   const handleReset = () => {
@@ -86,6 +95,7 @@ const Cards = ({ boardSize, multiplayer, playerNames, onReset}) => {
   useEffect(() => {
     if (matchedCards.length === shuffledCards.length && shuffledCards.length > 0) {
       setGameWon(true);
+      celebrate();
     }
   }, [matchedCards]);
 
