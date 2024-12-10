@@ -2,7 +2,7 @@
   display: grid;
   gap: 12px;
   border-radius: 10px;
-  width: 90%;
+  width: 100%;
   max-width: 800px;
   margin: 20px auto;
   max-height: calc(100vh - 150px);
