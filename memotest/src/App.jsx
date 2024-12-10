@@ -36,6 +36,11 @@ const App = () => {
     setBoardSize(size); 
   };
 
+  const handleResetGame = () => {
+    setGameStarted(false);
+  };
+
+
   return (
     <div className="app">  
       <main>
@@ -85,7 +90,7 @@ const App = () => {
             <Button text="Empezar Juego" onClick={handleStartGame}  multiplayer={multiplayer} playerNames={playerNames} />
           </div>
         ) : (
-          <Cards boardSize={boardSize} multiplayer={multiplayer} playerNames={playerNames}/> 
+          <Cards boardSize={boardSize} multiplayer={multiplayer} playerNames={playerNames} onReset={handleResetGame}/> 
         )}
       </main>
       <ToastContainer/>

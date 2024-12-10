@@ -41,7 +41,7 @@ import Button from '../Button/Button';
 
 
 
-const Cards = ({ boardSize, multiplayer, playerNames}) => {
+const Cards = ({ boardSize, multiplayer, playerNames, onReset}) => {
   const [shuffledCards, setShuffledCards] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
@@ -61,7 +61,9 @@ const Cards = ({ boardSize, multiplayer, playerNames}) => {
     return array;
   };
 
-
+  const handleReset = () => {
+    onReset(); 
+  };
   const resetGame = () => {
     const shuffled = shuffleArray([...arrayImages]);
     setShuffledCards(
@@ -156,7 +158,7 @@ const Cards = ({ boardSize, multiplayer, playerNames}) => {
         </div>
       )}
        <div className="buttonBack">
-      <Button text="Volver al Inicio" onClick={() => window.location.reload()}/>
+      <Button text="Volver al Inicio" onClick={handleReset}/>
       </div>
     </div>
   );
