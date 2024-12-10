@@ -10,7 +10,6 @@
   box-sizing: border-box;
 }
 
-
 .card {
   width: 100%; 
   display: flex;
@@ -23,6 +22,7 @@
   perspective: 500px;
   transition: transform 0.2s, background-color 0.3s;
 }
+
 .card.flipped {
   transform: rotateY(180deg);
   background-color: #ebddb6;

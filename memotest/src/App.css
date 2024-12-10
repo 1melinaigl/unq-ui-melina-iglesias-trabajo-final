@@ -14,6 +14,7 @@
     align-items: center; 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     overflow-y: auto;
+    box-sizing: border-box;
   }
 
   .startScreen {
@@ -42,18 +43,21 @@
     font-size: clamp(1rem, 4vw, 2rem); 
   }
   
- 
+  h3 {
+    font-size: clamp(1rem, 2vw, 1.5rem); 
+  }
+
 .sizeButtons {
     display: flex;
     justify-content: center;
-    gap: 10px; 
+    gap: 1rem; 
     margin: 20px 0; 
     flex-wrap: wrap;
   }
   
  
   .sizeButtons button {
-    padding: 10px 20px;
+    padding: 0.6rem 1.3rem;
     font-size: 1rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
