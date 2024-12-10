@@ -5,8 +5,9 @@
   width: 90%;
   max-width: 800px;
   margin: 20px auto;
+  max-height: calc(100vh - 150px);
   padding: 10px; 
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 

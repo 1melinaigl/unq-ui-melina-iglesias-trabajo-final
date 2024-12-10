@@ -152,7 +152,6 @@ const Cards = ({ boardSize, multiplayer, playerNames}) => {
           </h2>
           <div className="buttonOption">
             <Button text="Reiniciar Juego" onClick={resetGame} />
-            <Button text="Volver al Inicio" onClick={() => window.location.reload()} />
           </div>
         </div>
       )}
