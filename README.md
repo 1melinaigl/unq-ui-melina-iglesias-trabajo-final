@@ -1,7 +1,12 @@
-Instalación y Ejecución
+# Memotest - Proyecto Final
 
-PRECONDICION Y REQUISITOS:
-- Tener instalado node.js (descargarlo desde: nodejs.org.)
+## Requisitos previos
+
+Antes de instalar y ejecutar el proyecto es necesario contar con:
+- Node.js: (descargarlo desde https://nodejs.org).
+- Git: para clonar el repositorio.
+
+# Instalación y Ejecución
 
 CLONAR REPOSITORIO:
 git clone <URL_del_repositorio>
