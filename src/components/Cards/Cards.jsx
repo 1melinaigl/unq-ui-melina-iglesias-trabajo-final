@@ -62,7 +62,7 @@ const Cards = ({ boardSize, multiplayer, playerNames, onReset}) => {
     confetti({
       particleCount: 150,
       spread: 70,
-      origin: { y: 0.6 },  // Revisa que esto esté dentro del área visible
+      origin: { y: 0.6 },  // revisar q esto esté dentro del área visible
     });
   };
 
