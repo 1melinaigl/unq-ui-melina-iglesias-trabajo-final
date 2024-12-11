@@ -4,7 +4,7 @@ PRECONDICION Y REQUISITOS:
 - Tener instalado node.js (descargarlo desde: nodejs.org.)
 
 CLONAR REPOSITORIO:
-git clone <URL del repositorio>
+git clone <URL_del_repositorio>
 
 ACCEDER AL DIRECTORIO:
 cd <nombre_del_directorio>
