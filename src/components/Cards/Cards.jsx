@@ -48,7 +48,7 @@ const Cards = ({ boardSize, multiplayer, playerNames, onReset}) => {
 
   const images = [dog, cersei, daenerys, weapon, icefire, dragonIcon, jon, chair, fire, ice, knife, castle, arrow, 
                   arryn, shield, stark, dragon, targaryen, greyjoy, baratheon, martell, tyrell, tully, book, gema, tyrion, raven, ship, coup, paper, crown, money];
-  const arrayImages = images.slice(0, (boardSize * boardSize) / 2).flatMap((item) => [item, item]); // aca los los esta cortando según el tamaño del tablero q le doy y los duplica 
+  const arrayImages = images.slice(0, (boardSize * boardSize) / 2).flatMap((item) => [item, item]); 
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -62,7 +62,7 @@ const Cards = ({ boardSize, multiplayer, playerNames, onReset}) => {
     confetti({
       particleCount: 150,
       spread: 70,
-      origin: { y: 0.6 },  // revisar q esto esté dentro del área visible
+      origin: { y: 0.6 },  
     });
   };
 
@@ -88,8 +88,6 @@ const Cards = ({ boardSize, multiplayer, playerNames, onReset}) => {
   useEffect(() => {
     resetGame(); 
   }, [boardSize]);
-
-
 
   useEffect(() => {
     if (matchedCards.length === shuffledCards.length && shuffledCards.length > 0) {
@@ -156,7 +154,7 @@ const Cards = ({ boardSize, multiplayer, playerNames, onReset}) => {
                 : scores.player2 > scores.player1
                 ? `¡${playerNames.player2} gana! El trono es tuyo. 🎉`
                 : '¡Es un empate!'
-              : '¡Ganaste! 🎉'}
+                : '¡Ganaste! 🎉'}
           </h2>
           <div className="buttonOption">
             <Button text="Reiniciar Juego" onClick={resetGame} />

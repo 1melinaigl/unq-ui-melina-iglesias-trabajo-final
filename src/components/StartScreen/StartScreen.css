@@ -35,7 +35,6 @@ h3 {
     flex-wrap: wrap;
 }
   
- 
 .sizeButtons button {
     padding: 0.6rem 1.3rem;
     font-size: 1rem;
@@ -45,15 +44,13 @@ h3 {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease; 
-  }
-  
+}
   
 .sizeButtons button:hover {
     background-color: #b5b545; 
     color: rgb(255, 255, 255); 
 }
-  
-  
+   
 .sizeButtons button.selected {
     background-color: #D4AF37; 
     color: rgb(255, 255, 255); 
